@@ -1,0 +1,21 @@
+{% extends './layout.html' %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1 class="titulo">Turnos</h1>
+    <table class="turnero">
+        <tr>
+            <th class="encabezado">Turno</th>
+            <th class="encabezado">Ventana</th>
+        </tr>
+        {% for turno, ventana in turnero %}
+        <tr>
+            <td class="turno">{{ turno }}</td>
+            <td class="ventana">{{ ventana }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

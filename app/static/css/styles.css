@@ -1,0 +1,36 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b4b4b4; /* Color de fondo relajante */
+
+}
+
+.titulo {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.turnero {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.encabezado {
+    font-size: 24px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+.turno, .ventana {
+    font-size: 56px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.turno:last-child, .ventana:last-child {
+    border-bottom: none;
+}

@@ -1,0 +1,49 @@
+{% extends './layout.html' %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1 class="titulo">Administrar Turnero</h1>
+    <table class="turnero">
+        <tr>
+            <th class="encabezado">Turno</th>
+            <th class="encabezado">Ventana</th>
+        </tr>
+        {% for row in turnero %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td class="actions">
+                <form method="POST">
+                    <input type="hidden" name="action" value="remove_row">
+                    <input type="hidden" name="row_id" value="{{ row[0] }}">
+                    <button type="submit">Quitar</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="action" value="increment">
+                    <input type="hidden" name="row_id" value="{{ row[0] }}">
+                    <button type="submit">+</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="action" value="decrement">
+                    <input type="hidden" name="row_id" value="{{ row[0] }}">
+                    <button type="submit">-</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="action" value="set_number">
+                    <input type="hidden" name="row_id" value="{{ row[0] }}">
+                    <input type="number" name="new_number" value="{{ row[1] }}">
+                    <button type="submit">Set</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form method="POST">
+        <input type="hidden" name="action" value="add_row">
+        <button type="submit">Agregar Fila</button>
+    </form>    
+{% endblock %}
